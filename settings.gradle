@@ -8,5 +8,6 @@
  */
 
 rootProject.name = 'spring-boot-app'
+include 'mysql-support'
 include 'entities'
 include 'app'

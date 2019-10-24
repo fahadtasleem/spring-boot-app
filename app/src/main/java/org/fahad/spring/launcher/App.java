@@ -5,14 +5,16 @@ package org.fahad.spring.launcher;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication(scanBasePackages = "org.fahad.spring")
+@SpringBootApplication(scanBasePackages = {"org.fahad"})
+@Configuration
 public class App {
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class);
+        SpringApplication.run(App.class,args);
     }
 }
