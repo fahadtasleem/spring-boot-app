@@ -52,14 +52,7 @@ jar {
 
 dependencies {
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
-    api 'org.springframework.boot:spring-boot-starter-data-jpa'
-    api 'org.springframework.boot:spring-boot-starter-web'
-    api 'mysql:mysql-connector-java:'
-    api 'org.springframework:spring-jdbc'
-    api 'commons-io:commons-io:2.4'
-    api 'org.hibernate:hibernate-core:5.2.12.Final'
-    api project(':core-common')
+    api 'com.google.guava:guava:28.0-jre'
 }
 
 buildScan {

@@ -1,11 +1,15 @@
 package org.fahad.spring.jpa;
 
 //import com.google.common.util.concurrent.Striped;
+import com.google.common.util.concurrent.Striped;
 import com.zaxxer.hikari.HikariDataSource;
+import org.fahad.spring.core.concurrent.ConcurrentUtil;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 
 @Component
 public class MultiTenantDataSourceFactory {
@@ -20,19 +24,29 @@ public class MultiTenantDataSourceFactory {
     public static final String SSL_STRING =
             "verifyServerCertificate=false&useSSL=true&requireSSL=true";
     public static final int LOCK_TIMEOUT = 3; // in mins
-//    private final Striped<Lock> lockStriped = Striped.lock(1000);
+
+    private final Striped<Lock> lockStriped = Striped.lock(1000);
+    private ConcurrentHashMap<String,DataSource> dataSourceConcurrentHashMap = new ConcurrentHashMap<>();
+
+    private ConcurrentUtil.Factory<String, DataSource, DBConfig> dataSourceFactory =
+            new ConcurrentUtil.Factory<String, DataSource, DBConfig>() {
+                @Override
+                public DataSource create(String key, DBConfig config) {
+                    DataSource dataSource = createDataSource(key,config);
+                    return dataSource;
+                }
+            };
 
     private String createKeyForMysqlDataSource(String moduleName, String tenantId) {
         return new StringBuilder(moduleName).append("_").append(tenantId).toString();
     }
 
-    // TODO: Store the connection pool in cache.
     public DataSource getDatasourceForTenant(String moduleName, String tenantId) {
         String key = createKeyForMysqlDataSource(moduleName, tenantId);
-        return createDataSource(moduleName,tenantId);
+        return ConcurrentUtil.getOrCreate(lockStriped,dataSourceConcurrentHashMap, key, dataSourceFactory, new DBConfig(moduleName,tenantId));
     }
 
-    private DataSource createDataSource(String moduleName, String tenantId) {
+    private DataSource createDataSource(String moduleName, DBConfig config) {
         StringBuilder jdbcURLBuilder = new StringBuilder("jdbc:mysql://");
         String host = System.getenv("DB_HOST");
         jdbcURLBuilder
@@ -40,12 +54,12 @@ public class MultiTenantDataSourceFactory {
                 .append(":")
             .append(System.getenv("DB_PORT"))
             .append("/")
-            .append(moduleName+"_"+tenantId)
+            .append(config.getModuleName()+"_"+config.getTenantId())
                 .append("?");
 
         jdbcURLBuilder.append(PROPS_STRING);
 
-        String poolName = "[template] - [partner] - [partner] - [" + moduleName+"_"+tenantId + "]";
+        String poolName = "[template] - [partner] - [partner] - [" + moduleName+"_"+config.getTenantId() + "]";
         return makeDS(
                 "root", "", jdbcURLBuilder.toString(), poolName);
     }
