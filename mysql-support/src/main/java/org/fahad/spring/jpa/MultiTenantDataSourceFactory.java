@@ -26,6 +26,7 @@ public class MultiTenantDataSourceFactory {
         return new StringBuilder(moduleName).append("_").append(tenantId).toString();
     }
 
+    // TODO: Store the connection pool in cache.
     public DataSource getDatasourceForTenant(String moduleName, String tenantId) {
         String key = createKeyForMysqlDataSource(moduleName, tenantId);
         return createDataSource(moduleName,tenantId);

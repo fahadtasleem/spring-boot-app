@@ -15,7 +15,7 @@ A default database should be created with `default_t0` name.
 #### DB schema
 
  ```SQL
- CREATE DATABASE default_t1;`
+ CREATE DATABASE default_t1;
  
  CREATE TABLE 'user' (
    'id' bigint(10) unsigned NOT NULL AUTO_INCREMENT,
