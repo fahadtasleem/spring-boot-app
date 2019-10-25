@@ -53,6 +53,7 @@ jar {
 dependencies {
     // Use JUnit test framework
     api 'com.google.guava:guava:28.0-jre'
+    api 'org.springframework.boot:spring-boot-starter-web'
 }
 
 buildScan {

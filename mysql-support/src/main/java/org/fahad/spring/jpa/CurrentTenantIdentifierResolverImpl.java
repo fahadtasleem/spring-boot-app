@@ -1,5 +1,6 @@
 package org.fahad.spring.jpa;
 
+import org.fahad.spring.core.request.UserContextProvider;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -11,11 +12,7 @@ public class CurrentTenantIdentifierResolverImpl implements CurrentTenantIdentif
 
   @Override
   public String resolveCurrentTenantIdentifier() {
-      ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-      String tenantId = DEFAULT_TENANT_ID;
-      if(attr!=null && attr.getRequest()!=null) {
-          tenantId = attr.getRequest().getHeader("tenantId");
-      }
+      String tenantId = UserContextProvider.getTenantId();
       return StringUtils.isEmpty(tenantId)?DEFAULT_TENANT_ID:tenantId;
   }
 

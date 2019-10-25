@@ -3,12 +3,15 @@
  */
 package org.fahad.spring.launcher;
 
+import org.fahad.spring.core.request.DefaultWebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @SpringBootApplication(scanBasePackages = {"org.fahad"})
 @Configuration
+@Import(DefaultWebConfig.class)
 public class App {
     public String getGreeting() {
         return "Hello world.";
