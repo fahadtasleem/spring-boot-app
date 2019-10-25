@@ -7,12 +7,15 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class CurrentTenantIdentifierResolverImpl implements CurrentTenantIdentifierResolver {
 
-  public static final String DEFAULT_TENANT_ID = "t1";
+  public static final String DEFAULT_TENANT_ID = "t0";
 
   @Override
   public String resolveCurrentTenantIdentifier() {
       ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-      String tenantId = attr.getRequest().getHeader("tenantId");
+      String tenantId = DEFAULT_TENANT_ID;
+      if(attr!=null && attr.getRequest()!=null) {
+          tenantId = attr.getRequest().getHeader("tenantId");
+      }
       return StringUtils.isEmpty(tenantId)?DEFAULT_TENANT_ID:tenantId;
   }
 

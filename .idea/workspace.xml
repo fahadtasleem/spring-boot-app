@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d9d26c3-374c-4dbc-8c2f-d4c388f9a68f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/JpaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/model/UserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/repo/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/api/HelloGradleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/api/HelloGradleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/model/UserModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/fahad/spring/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/fahad/spring/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/entities/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/dao/UserDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/JpaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/manager/UserManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/manager/UserManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/CurrentTenantIdentifierResolverImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/CurrentTenantIdentifierResolverImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -237,6 +227,21 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/org/fahad/spring/api/UserController.java</url>
           <line>21</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/CurrentTenantIdentifierResolverImpl.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

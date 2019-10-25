@@ -9,7 +9,6 @@ import javax.sql.DataSource;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Component
 public class DataSourceBasedMultiTenantConnectionProviderImpl extends AbstractDataSourceBasedMultiTenantConnectionProviderImpl {
     private Map<String, ConnectionProvider> connectionProviderMap
             = new ConcurrentHashMap<>();
