@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d9d26c3-374c-4dbc-8c2f-d4c388f9a68f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/fahad/spring/launcher/JpaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/manager/UserManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/manager/UserManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/CurrentTenantIdentifierResolverImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/CurrentTenantIdentifierResolverImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +16,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/schduler">
       <ProjectState />
     </projectState>
   </component>
@@ -54,7 +54,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/mysql/jpa" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/schduler/src/main/java/org/fahad/spring/scheduler" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -62,11 +62,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/mysql/jpa" />
+      <recent name="$PROJECT_DIR$/schduler/src/main/java/org/fahad/spring/scheduler" />
+      <recent name="$PROJECT_DIR$/schduler/src/main/java" />
+      <recent name="$PROJECT_DIR$/schduler/src/main/resources" />
+      <recent name="$PROJECT_DIR$/app/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/entities/src/main/java/org/fahad/spring/entities/dao" />
-      <recent name="$PROJECT_DIR$/entities" />
-      <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -84,7 +84,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.SchedulerApplication">
     <configuration name="App" type="Application" factoryName="Application">
       <envs>
         <env name="DB_HOST" value="localhost" />
@@ -110,6 +110,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.fahad.spring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchedulerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.fahad.spring.scheduler.SchedulerApplication" />
+      <module name="schduler.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.fahad.spring.scheduler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,6 +188,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.SchedulerApplication" />
       <item itemvalue="Application.App" />
       <item itemvalue="Gradle.AppTest" />
       <item itemvalue="Gradle.AppTest.helloGradle" />
@@ -229,19 +243,24 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/CurrentTenantIdentifierResolverImpl.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java</url>
-          <line>24</line>
+          <line>18</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/DataSourceBasedMultiTenantConnectionProviderImpl.java</url>
-          <line>29</line>
+          <line>23</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mysql-support/src/main/java/org/fahad/spring/jpa/MultiTenantDataSourceFactory.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core-common/src/main/java/org/fahad/spring/core/request/DefaultServiceFilter.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
