@@ -4,7 +4,7 @@ import org.springframework.util.StringUtils;
 
 public class UserContextProvider {
     final static ThreadLocal<UserContext> userContextThreadLocal = new ThreadLocal<>();
-
+    //InheritableThreadLocal
     private UserContextProvider(){
 
     }

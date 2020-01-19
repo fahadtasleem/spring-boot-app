@@ -4,11 +4,14 @@
 package org.fahad.spring.launcher;
 
 import org.fahad.spring.core.request.DefaultWebConfig;
+import org.fahad.spring.core.request.UserContext;
+import org.fahad.spring.core.request.UserContextProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.core.task.TaskDecorator;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -34,7 +37,28 @@ public class App {
         executor.setMaxPoolSize(3);
         executor.setQueueCapacity(100);
         executor.setThreadNamePrefix("AsynchThread-");
+        executor.setTaskDecorator(new MdcTaskDecorator());
         executor.initialize();
         return executor;
+    }
+
+    static class MdcTaskDecorator implements TaskDecorator {
+
+        @Override
+        public Runnable decorate(Runnable runnable) {
+            // Right now: Web thread context !
+            // (Grab the current thread MDC data)
+            UserContext userContext = UserContextProvider.get();
+            return () -> {
+                try {
+                    // Right now: @Async thread context !
+                    // (Restore the Web thread context's MDC data)
+                    UserContextProvider.set(userContext);
+                    runnable.run();
+                } finally {
+                    UserContextProvider.unsetContext();
+                }
+            };
+        }
     }
 }

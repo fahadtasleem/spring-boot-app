@@ -1,5 +1,6 @@
 package org.fahad.spring.manager;
 
+import org.fahad.spring.core.request.UserContextProvider;
 import org.fahad.spring.entities.User;
 import org.fahad.spring.entities.model.UserModel;
 import org.fahad.spring.entities.repo.UserRepository;
@@ -33,6 +34,7 @@ public class UserManagerImpl implements UserManager{
     @Async("asyncExecutor")
     @Override
     public CompletableFuture<User> getAsyncUser() throws InterruptedException {
+        System.out.println(UserContextProvider.getTenantId());
         Thread.sleep(10*1000L);    //Intentional delay
         return CompletableFuture.completedFuture(new User());
     }
