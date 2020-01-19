@@ -6,6 +6,8 @@ import org.fahad.spring.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.CompletableFuture;
+
 @RestController
 @RequestMapping(path = "/user")
 public class UserController {
@@ -20,5 +22,10 @@ public class UserController {
     @PostMapping(path = {""}, produces = "application/json",consumes =  "application/json")
     public User save(@RequestBody UserModel user){
         return userManager.save(user);
+    }
+
+    @GetMapping(path = {"/async"},produces = "application/json")
+    public CompletableFuture<User> getAsync() throws InterruptedException {
+        return userManager.getAsyncUser();
     }
 }

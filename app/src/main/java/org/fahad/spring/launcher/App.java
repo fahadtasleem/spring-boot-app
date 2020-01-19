@@ -6,12 +6,18 @@ package org.fahad.spring.launcher;
 import org.fahad.spring.core.request.DefaultWebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
+import java.util.concurrent.Executor;
 
 @SpringBootApplication(scanBasePackages = {"org.fahad"})
 @Configuration
 @Import(DefaultWebConfig.class)
+@EnableAsync
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -19,5 +25,16 @@ public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class,args);
+    }
+
+    @Bean(name = "asyncExecutor")
+    public Executor asyncExecutor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(3);
+        executor.setMaxPoolSize(3);
+        executor.setQueueCapacity(100);
+        executor.setThreadNamePrefix("AsynchThread-");
+        executor.initialize();
+        return executor;
     }
 }
